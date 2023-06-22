@@ -1309,8 +1309,8 @@ a {
 .profile-progress-large .c100 {
     position: relative;
     font-size: 0px;
-    width: 90px;
-    height: 90px;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
     float: left;
     margin: 0 1px 1px 0;
@@ -1329,10 +1329,7 @@ a {
     position: absolute;
     width: 100%;
     z-index: 1;
-    left: 8px;
-    top: 8px;
-    width: 95px;
-    height: 95px;
+    height: 112px;
     border-radius: 50%;
     display: block;
     text-align: center;
