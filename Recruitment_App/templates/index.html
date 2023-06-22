@@ -331,7 +331,7 @@
                             {% if not request.user.is_authenticated %}
                                 <a href="{% url 'Signup' %}"><button class="second_button">Apply</button></a>
                                 {% elif user.is_staff == 1 %}
-                                <button class="second_button">Apply</button>
+                                
                                 {% else %}
                                 <button class="second_button" onclick="openForm()">Apply</button>
                             {% endif %}
@@ -375,7 +375,7 @@
                             {% if not request.user.is_authenticated %}
                                 <a href="{% url 'Signup' %}"><button class="second_button">Apply</button></a>
                                 {% elif user.is_staff == 1 %}
-                                <button class="second_button">Apply</button>
+                              
                                 {% else %}
                                 <button class="second_button" onclick="openForm()">Apply</button>
                             {% endif %}
