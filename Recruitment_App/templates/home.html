@@ -1,0 +1,444 @@
+
+{% extends 'base.html' %}
+{% block main_content %}
+
+{% load static %}
+
+<div class="layout-main candidate-portal myProfile-page">
+    <div class="site-width" style="min-height: 835px;">
+        <div class="main-container">
+            <div class="container-inner">
+                <div class="content">
+                    <app-notification>
+                        <div class="position-rel container935">
+                            <!---->
+                        </div>
+                    </app-notification>
+                    <router-outlet></router-outlet>
+                    <app-profile><!----><!---->
+                        <div>
+                            <div class="main-title-row title-with-rht">
+                                <h1 class="main-title">My Profile </h1>
+                                <div class="main-title-right">
+                                    <a class="btn btn-primary" gaevent="ViewProfile#Update" href="/profile_update">
+                                        EDIT PROFILE</a>
+                                    </div>
+                                </div>
+                                <div class="padding-t10 margin-topnone">
+                                    <div class="section_halfLess">
+                                        <ul class="item_list item_list2">
+                                            <li class="item_list_block first_row_btn">
+                                                <div class="candidate-profile-progres">
+                                                    <div class="progress-title clearfix">
+                                                        <span class="pull-left">
+                                                            Profile Complete 
+                                                            <span class="big">23%</span>
+                                                        </span>
+                                                    </div>
+                                                    <div class="candidate-profile-progres-inner">
+                                                        <div class="doted_progress_bar2 clearfix">
+                                                            <ul class="list-reset">
+                                                                <li>
+                                                                    <span class="doted"></span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="doted"></span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="doted"></span>
+                                                                </li>
+                                                                <li><span class="doted"></span>
+                                                                </li>
+                                                                <li><span class="doted"></span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="doted"></span>
+                                                                </li>
+                                                                <li><span class="doted"></span>
+                                                                </li>
+                                                                <li><span class="doted"></span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="progress_bar_active" style="width: 23%;">
+                                                            <div class="doted_progress_bar2 doted-active clearfix">
+                                                                <ul class="list-reset">
+                                                                    <li>
+                                                                        <span class="doted"></span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <span class="doted"></span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <span class="doted"></span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <span class="doted"></span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <span class="doted"></span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <span class="doted"></span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <span class="doted"></span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <span class="doted"></span>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li><!---->
+                                            {% comment %} <li class="item_list_block desktop-only video-block"> 
+                                                <div class="resume-data height646">PRAKASH &nbsp;RATHI
+                                                    <br>
+                                                    <br>
+                                                    TAX &nbsp;AUDITOR
+                                                    <br>
+                                                    <br>
+                                                    CONTACT
+                                                    <br>
+                                                    <br>
+                                                    +91-9890004195
+                                                    <br>
+                                                    fathom94prakash@gmail.com
+                                                    <br>
+                                                    Pune
+                                                    <br>
+                                                    <br>
+                                                    SKILLS
+                                                    <br>
+                                                    Communication
+                                                    <br>
+                                                    Decesion-Making
+                                                    <br>
+                                                    Tax Audit
+                                                    <br>
+                                                    GST Returns
+                                                    <br>
+                                                    Income Tax Returns
+                                                    <br>
+                                                    Internal Audit
+                                                    <br>
+                                                    Strategic Thinking
+                                                    <br>
+                                                    Multitasking
+                                                    <br>
+                                                    TDS
+                                                    <br>
+                                                    Tally Accounting
+                                                    <br>
+                                                    <br>
+                                                    TECHNICAL
+                                                    <br>
+                                                    SKILLS
+                                                    <br>
+                                                    <br>
+                                                    MS Office Suite
+                                                    <br>
+                                                    Google Workspace
+                                                    <br>
+                                                    <br>
+                                                    EDUCATION
+                                                    <br>
+                                                    <br>
+                                                    CA Finalist, Pune
+                                                    <br>
+                                                    <br>
+                                                    Bachelor of Business
+                                                    <br>
+                                                    Administration
+                                                    <br>
+                                                    J.N.V.U, Jodhpur
+                                                    <br>
+                                                    <br>
+                                                    SUMMARY
+                                                    <br>
+                                                    Rich experience in entire gamut of accounting &amp; finance
+                                                    <br>
+                                                    operations entailing preparation &amp; maintenance of statutory books
+                                                    <br>
+                                                    of accounts and administering the finalization year-end financial
+                                                    <br>
+                                                    statements.
+                                                    <br>
+                                                    Preparing and analysing quarterly, half-yearly and annual reports
+                                                    <br>
+                                                    and accounts
+                                                    <br>
+                                                    <br>
+                                                    WORK &nbsp;EXPERIENCE
+                                                    <br>
+                                                    <br>
+                                                    CA Articleship
+                                                    <br>
+                                                    CA Rahul Bachhawat Associates, Phalodi, Jodhpur &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2.5 Years
+                                                    <br>
+                                                    <br>
+                                                    Tax Auditor
+                                                    <br>
+                                                     P &amp; M Rathi Associates, Marketyard, Pune &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;3 Years
+                                                </div>
+                                            </li> {% endcomment %}
+                                                <!---->
+                                        </ul>
+                                    </div>
+                                        
+                                        
+                                    <div class="section_halfPluse">
+                                        <ul class="item_list">
+                                            <!---->
+                                            <li class="item_list_block step_open">
+                                                <div class="info_title theme-color">
+                                                    <span class="count_Icon theme-color">
+                                                        1
+                                                    </span>
+                                                    Basic
+                                                     <!----><!---->
+                                                     <span class="fl-right pan-icon material-icons" aria-describedby="cdk-describedby-message-0" cdk-describedby-host=""> assignment_ind </span>
+                                                     <!---->
+                                                </div>
+                                                    {% comment %} <div class="panel-body ng-star-inserted">
+                                                        <p><li style="font-size:12px;"></li></p>
+                                                    </div> {% endcomment %}
+                                            {% if request.user.is_authenticated %}
+                                                <div class="panel-body ng-star-inserted">
+                                                        <!----><!---->
+                                                    <div class="panel-row clearfix">
+                                                        <span class="panel-col panel-col1">First Name</span>
+                                                        <span class="panel-col text-bold-cell">{{user.username}}</span>
+                                                    </div>
+                                                    <!---->
+                                                    <div class="panel-row clearfix">
+                                                        <span class="panel-col panel-col1">Middle Name</span>
+                                                        <span class="panel-col text-bold-cell">--</span>
+                                                    </div>
+                                                    <!---->
+                                                    <div class="panel-row clearfix">
+                                                        <span class="panel-col panel-col1">Last name</span>
+                                                        <span class="panel-col text-bold-cell">--</span>
+                                                    </div>
+                                                    <!---->
+                                                    <div class="panel-row clearfix">
+                                                        <span class="panel-col panel-col1">Do you have any relatives working in CSB Bank Ltd? (Yes/No)</span>
+                                                        <span class="panel-col text-bold-cell">--</span>
+                                                    </div>
+                                                    <!---->
+                                                    <div class="panel-row clearfix">
+                                                        <span class="panel-col panel-col1">Have you been arrested/been convicted by any court of law/have any pending legal cases?(Yes/No)</span>
+                                                        <span class="panel-col text-bold-cell">--</span>
+                                                    </div>
+                                                    <!---->
+                                                    <div class="panel-row clearfix">
+                                                        <span class="panel-col panel-col1">I hereby authorize CSB Bank or its vendors to access my credit score (Yes/No)</span>
+                                                        <span class="panel-col text-bold-cell">--</span>
+                                                    </div>
+                                                    <!---->
+                                                    <div class="panel-row clearfix">
+                                                        <span class="panel-col panel-col1">I agree to receive communication about my candidature with CSB via WhatsApp/Email/SMS (Yes/No)</span>
+                                                        <span class="panel-col text-bold-cell">--</span>
+                                                    </div>
+                                                    <!---->
+                                                    <div class="panel-row clearfix">
+                                                        <span class="panel-col panel-col1">All information provided by me in this application is true to the best of my knowledge (Yes/No)</span>
+                                                        <span class="panel-col text-bold-cell">--</span>
+                                                    </div>
+                                                    <!----><!---->
+                                                    <div class="panel-row clearfix">
+                                                        <span class="panel-col panel-col1">Mobile</span>
+                                                        <span class="panel-col text-bold-cell">--</span>
+                                                    </div>
+                                                    <!---->
+                                                    <div class="panel-row clearfix">
+                                                        <span class="panel-col panel-col1">Date Of Birth</span>
+                                                        <span class="panel-col text-bold-cell">--</span>
+                                                    </div>
+                                                    <!---->
+                                                    <div class="panel-row clearfix">
+                                                        <span class="panel-col panel-col1">Candidate Age</span>
+                                                        <span class="panel-col text-bold-cell">--</span>
+                                                    </div>
+                                                    <!---->
+                                                    <div class="panel-row clearfix">
+                                                        <span class="panel-col panel-col1">Gender</span>
+                                                        <span class="panel-col text-bold-cell">--</span>
+                                                    </div>
+                                                    <!---->
+                                                    <div class="panel-row clearfix">
+                                                        <span class="panel-col panel-col1">Primary Email</span>
+                                                        <span class="panel-col text-bold-cell">{{user.email}}</span>
+                                                    </div>
+                                                    <!----><!---->
+                                                    <div class="panel-row clearfix">
+                                                        <span class="panel-col panel-col1">PAN Available</span>
+                                                        <!----><!---->
+                                                    </div>
+                                                        <!----><!---->
+                                                    <div class="panel-row clearfix">
+                                                        <span class="panel-col panel-col1">PAN Number</span>
+                                                        <span class="panel-col text-bold-cell">--</span>
+                                                    </div>
+                                                            <!---->
+                                                            <!---->
+                                                            <!---->
+                                                            <!---->
+                                                            <!---->
+                                                            <!---->
+                                                            <!---->
+                                                            <!---->
+                                                            <!---->
+                                                </div>
+                                            {% endif %}
+                                            </li>
+                                                    <!---->
+                                            <li class="item_list_block step_open">
+                                                <div class="info_title theme-color">
+                                                    <span class="count_Icon theme-color">
+                                                        2
+                                                    </span>
+                                                    Personal Section  
+                                                </div>
+                                                <!---->
+                                                <div class="panel-body ng-star-inserted">
+                                                    <div class="panel-row clearfix">
+                                                        <span class="panel-col panel-col1 text-description">No data available</span>
+                                                    </div>
+                                                </div>
+                                                <!---->
+                                            </li>
+                                                    <!---->
+                                            <li class="item_list_block step_open">
+                                                <div class="info_title theme-color">
+                                                    <span class="count_Icon theme-color">
+                                                        3
+                                                    </span>
+                                                    Work Section 
+                                                 </div>
+                                                 <!---->
+                                                 <div class="panel-body ng-star-inserted">
+                                                    <div>
+                                                        <!---->
+                                                        <div class="panel-row clearfix">
+                                                            <span class="panel-col panel-col1">Fresher</span>
+                                                            <span class="panel-col text-bold-cell">No</span>
+                                                        </div>
+                                                        <!---->
+                                                        <!---->
+                                                        <!---->
+                                                        <div class="panel-row clearfix">
+                                                            <span class="panel-col panel-col1">Total Experience</span>
+                                                            <!---->
+                                                            <!---->
+                                                            <!---->
+                                                            <!---->
+                                                        </div>
+                                                        <!---->
+                                                        <!---->
+                                                        <!---->
+                                                        <!---->
+                                                    </div>
+                                                    <!---->
+                                                </div>
+                                            </li>
+                                                    <!---->
+                                                    <!---->
+                                            <li class="item_list_block step_open">
+                                                <div class="info_title theme-color">
+                                                    <span class="count_Icon theme-color">
+                                                        4
+                                                    </span>
+                                                    Education Section 
+                                                 </div>
+                                                 <!---->
+                                                 <div class="panel-body ng-star-inserted">
+                                                    <div class="panel-row clearfix">
+                                                        <span class="panel-col panel-col1 text-description">No data available</span>
+                                                    </div>
+                                                </div>
+                                                <!---->
+                                            </li>
+                                                    <!---->
+                                            <li class="item_list_block step_open">
+                                                <div class="info_title theme-color">
+                                                    <span class="count_Icon theme-color">
+                                                        5
+                                                    </span>
+                                                    Skills 
+                                                 </div
+                                                 ><!---->
+                                                 <div class="panel-body ng-star-inserted">
+                                                    <div class="panel-row clearfix">
+                                                        <span class="panel-col panel-col1 text-description">No data available</span>
+                                                    </div>
+                                                </div>
+                                                <!---->
+                                            </li>
+                                                    <!---->
+                                            <li class="item_list_block step_open">
+                                                <div class="info_title theme-color">
+                                                    <span class="count_Icon theme-color">
+                                                        6
+                                                    </span>
+                                                        Languages  
+                                                </div>
+                                                    <!---->
+                                                <div class="panel-body ng-star-inserted">
+                                                    <div class="panel-row clearfix">
+                                                        <span class="panel-col panel-col1 text-description">No data available</span>
+                                                    </div>
+                                                </div>
+                                                    <!---->
+                                            </li>
+                                                        <!---->
+                                            <li class="item_list_block step_open">
+                                                <div class="info_title theme-color">
+                                                    <span class="count_Icon theme-color">
+                                                        7
+                                                    </span>
+                                                    Attach Documents 
+                                                </div>
+                                                 <!---->
+                                                <div class="panel-body ng-star-inserted">
+                                                    <div class="panel-row clearfix">
+                                                        <span class="panel-col panel-col1 text-description">No data available</span>
+                                                    </div>
+                                                </div>
+                                                <!---->
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="clearfix">
+                                    &nbsp;
+                                </div>
+                                <div class="clearfix">
+                                    &nbsp;
+                                </div>
+                                <div class="clearfix">
+                                    &nbsp;
+                                </div>
+                            </div>
+                        
+                    </app-profile>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <app-scroll-top>
+        <div class="genie-top-btn print-displayNone" gaevent="footer#scrolltop">
+            <a class="genie-chat-btn button-round55" href="javascript:void(0)">
+                <span class="jinie-white-icon"></span>
+            </a>
+            <a class="top-btn button-round55" href="javascript:void(0)">
+                <span class="material-icons dp40">expand_less</span>
+            </a>
+        </div>
+    </app-scroll-top>
+
+{% endblock main_content%}

@@ -1,0 +1,462 @@
+{% extends 'base.html' %}
+{% block main_content %}
+
+{% load static %}
+
+{% if messages %}
+<ul class="messages">
+{% for message in messages %}
+  <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+    {% if request.user.is_authenticated %}
+        <!-- Carousel Start -->
+<div _ngcontent-xns-c10="" class="section-card padding-t5 clearfix">
+    <div _ngcontent-xns-c10="" class="card-block  card-flip card-4">
+        <div _ngcontent-xns-c10="" class="card-flip-block">
+            <div _ngcontent-xns-c10="" class="card-block-inner clearfix">
+                <div _ngcontent-xns-c10="" class="card-flip-top clearfix">
+                    <div _ngcontent-xns-c10="" class="profile-progress-large">
+                        <!---->
+                        <div _ngcontent-xns-c10="" class="c100 p31 profileColor">
+                            <!---->
+                            <img _ngcontent-xns-c10="" alt="Candidate Portal" src="assets/images/svg/genericUser.svg">
+                            <!---->
+                            {% comment %} <div _ngcontent-xns-c10="" class="slice">
+                                <div _ngcontent-xns-c10="" class="bar"></div>
+                                <div _ngcontent-xns-c10="" class="fill"></div>
+                            </div> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+                <div _ngcontent-xns-c10="" class="card-flip-middle clearfix">
+                    <!---->
+                    <!---->
+                    <h2 _ngcontent-xns-c10="" class="purple-color theme-color"> {{user.username}} </h2
+                        ><!---->
+                        <!---->
+                        <div _ngcontent-xns-c10="" class="profile-detail-row clearfix">
+                            <div _ngcontent-xns-c10="" class="text-cell padding-b5">
+                                <span _ngcontent-xns-c10="" class="material-icons dp18 purple-color theme-color">
+                                   Phone No :-
+                                </span>
+                                 
+                            </div>
+                                <div _ngcontent-xns-c10="" class="text-cell text-dotted">
+                                    <span _ngcontent-xns-c10="" class="material-icons dp18 purple-color theme-color">
+                                        Email ID -:</span>
+                                         {{user.email}}
+                                </div><!---->
+                                <div _ngcontent-xns-c10="" class="conpleted-profile-cell">
+                                    </div>
+                                </div>
+                            </div>
+                            <div _ngcontent-xns-c10="" class="card-flip-bottom">
+                                <a _ngcontent-xns-c10="" class="completed-link theme-color" gaevent="dashboard#profileupdate" href="/profile/update">
+                                    
+                                    <span _ngcontent-xns-c10="" class="material-icons dp18 purple-color theme-color">
+                                        
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                
+                {% comment %} <div _ngcontent-xns-c10="" class="card-block card-flip card-4 job-approved-card">
+                    <div _ngcontent-xns-c10="" class="front card-flip-block front-1">
+                        <div _ngcontent-xns-c10="" class="card-block-inner clearfix">
+                            <div _ngcontent-xns-c10="" class="card-flip-top action_pending_img">
+                                <img src="../static/img/about-1.jpg" style="width:100%;">
+                            </div>
+                            <div _ngcontent-xns-c10="" class="card-flip-middle">
+                                <h2 _ngcontent-xns-c10="" class="purple-color theme-color">
+                                     No 
+                                     <br _ngcontent-xns-c10="">
+                                     Action
+                                     <br _ngcontent-xns-c10="">
+                                     Pending </h2></div><!---->
+                            </div>
+                        </div>
+                        <div _ngcontent-xns-c10="" class="back card-flip-details back-1">
+                            <div _ngcontent-xns-c10="" class="card-block-inner clearfix">
+                                <div _ngcontent-xns-c10="" class="card-flip-details-inner">
+                                    <div _ngcontent-xns-c10="" class="card-flip-listing">
+                                        <ul _ngcontent-xns-c10="" class="list-reset">
+                                            <!---->
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div _ngcontent-xns-c10="" class="gradient-top-bot">
+
+                                </div>
+                                <div _ngcontent-xns-c10="" class="card-flip-bottom">
+                                    <a _ngcontent-xns-c10="" class="btn btn-white fl-left unflip-btn">
+                                        Back
+                                    </a>
+                                    <a _ngcontent-xns-c10="" class="btn btn-default fl-right" gaevent="dashboard#My Jobs" href="/job/myjobs">
+                                        more
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div _ngcontent-xns-c10="" class="card-block card-flip card-4 job-approved-card">
+                        <div _ngcontent-xns-c10="" class="front card-flip-block front-1">
+                            <div _ngcontent-xns-c10="" class="card-block-inner clearfix">
+                                <div _ngcontent-xns-c10="" class="card-flip-top job_pending_img">
+                                    <img src="../static/img/carousel-1.jpg" style="width:100%;">
+
+                                </div>
+                                <div _ngcontent-xns-c10="" class="card-flip-middle">
+                                    <h2 _ngcontent-xns-c10="" class="purple-color theme-color">
+                                         No 
+                                         <br _ngcontent-xns-c10="">
+                                         Jobs<br _ngcontent-xns-c10="">
+                                         Applied
+                                        </h2>
+                                    </div>
+                                    <!---->
+                                </div>
+                            </div>
+                            <div _ngcontent-xns-c10="" class="back card-flip-details back-1">
+                                <div _ngcontent-xns-c10="" class="card-block-inner clearfix">
+                                    <div _ngcontent-xns-c10="" class="card-flip-details-inner">
+                                        <div _ngcontent-xns-c10="" class="card-flip-listing">
+                                            <ul _ngcontent-xns-c10="" class="list-reset">
+                                                <!---->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div _ngcontent-xns-c10="" class="gradient-top-bot">
+
+                                    </div>
+                                    <div _ngcontent-xns-c10="" class="card-flip-bottom">
+                                        <a _ngcontent-xns-c10="" class="btn btn-white fl-left unflip-btn" href="">
+                                            Back
+                                        </a>
+                                        <a _ngcontent-xns-c10="" class="btn btn-default fl-right" gaevent="dashboard#My Jobs" href="">
+                                            more
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!---->
+                    </div>    {% endcomment %}
+            </div>
+ 
+            {% endif %}
+
+        <!-- Search Start -->
+    <form class="d-flex" method = "POST" action="{% url 'search' %}">
+    {% csrf_token %}
+        <div class="container-fluid bg-primary mb-3 wow fadeIn" data-wow-delay="0.1s" style="padding: 15px;">
+            <div class="container">
+                <div class="row g-2">
+                    <div class="col-md-10">
+                        <div class="row g-2">
+                            <div class="col-md-4">
+                                <input type="search" name="searched" class="form-control border-0" placeholder="Keyword" aria-label="Search" />
+                            </div>
+{% comment %} 
+                            <div class="col-md-4">
+                                <select class="form-control" name="employment_status" id="employment_status" placeholder="Employment Status" aria-label="Search" >
+                                    <option value=""><--Select Status--></option>
+                                    <option value="Part Time">Part Time</option>
+                                    <option value="Full Time">Full Time</option>
+                                    <option value="Freelance">Freelance</option>
+                                </select>
+                            </div> {% endcomment %}
+                             {% comment %} <div class="col-md-4">
+                                <select class="form-select border-0" name="searched">
+                                    <option value=""><--Select Category--></option>
+                                        {% for cat in category %}
+                                        <option value="{{cat.id}}">{{cat.category}}</option>
+                                        {% endfor %}
+                                </select>
+                            </div> {% endcomment %}
+                            {% comment %} 
+                            <div class="col-md-4">
+                                <select class="form-select border-0">
+                                    <option selected>Location</option>
+                                    <option value="1">Location 1</option>
+                                    <option value="2">Location 2</option>
+                                    <option value="3">Location 3</option>
+                                </select>
+                            </div> {% endcomment %}
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-dark border-0 w-100">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+        <!-- Search End -->
+
+<!--Pagination-->
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      {% if joblisting.has_previous %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ joblisting.previous_page_number }}">Previous</a>
+        </li>
+      {% else %}
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1" aria-disabled="True">Previous</a>
+        </li>
+      {% endif %}
+      {% for i in joblisting.paginator.page_range %}
+        {% if joblisting.number == i %}
+          <li class="page-item active" aria-current="page">
+            <span class="page-link">
+              {{ i }}
+              <span class="sr-only">(current)</span>
+            </span>
+          </li>
+        {% else %}
+          <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+      {% endfor %}
+      {% if joblisting.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ joblisting.next_page_number }}">Next</a>
+        </li>
+      {% else %}
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1" aria-disabled="True">Next</a>
+        </li>
+      {% endif %}
+    </ul>
+  </nav>
+  <!--end of Pagination-->      
+    <!-- Category Start -->
+        <div class="container-xxl py-3" >
+            <div class="container">
+                <h1 class="text-center mb-3 wow fadeInUp" data-wow-delay="0.1s">Explore By Category</h1>
+                <br>
+                <hr>
+
+            {% if request.user.is_staff %}
+
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label class="category">Category :-</label>
+                        <select class="form-control-cat" name="category_id" id="category" placeholder="category"  required>
+                            <option value=""><--------------Select Category----------------></option>
+                            {% for cat in category %}
+                            <option value="{{cat.id}}">{{cat.category}}</option>
+                            {% endfor %}
+                        </select>                
+                    </div>
+                </div> 
+
+               
+                <div class="card" onclick=>
+                    <a href="{% url 'applied_user_details' %}" >
+                        <div class="card-body">
+                          <h3 class="card-title">10</h3>
+                          <p class="card-text">RECEIVED CV</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card">
+                    <a href="#" >
+                        <div class="card-body">
+                            <h3 class="card-title">10</h3>
+                            <p class="card-text">SHORTLISTED</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card">
+                    <a href="#" >
+                        <div class="card-body">
+                            <h3 class="card-title">10</h3>
+                            <p class="card-text">HOLD</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card">
+                    <a href="#" >
+                        <div class="card-body">
+                            <h3 class="card-title">10</h3>
+                            <p class="card-text">REJECTED</p>
+                        </div>
+                    </a>
+                </div>
+
+            {% endif %}
+
+                <div class="row g-4">
+                 
+                    {% if searched %}
+                    {% for list in joblisting %}
+
+                       
+                    <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s" id="received">
+                        <div class="card-item card-button" >
+                            <a class="cat-item rounded p-4" href="{% url 'job_detail' list.id %}">
+
+                                <h6 class="mb-3">{{list.title}}</h6>
+                                <hr>
+                                <p class="mb-0">{{list.company_name}} - {{list.job_location}}</p>
+                                <hr>
+                                <p class="mb-0">Posted On: {{list.published_on}}</p>
+                                <hr>
+                                <p class="mb-0">Required Experience
+                                <span class="card-detail">{{list.experience}} years </span></p>
+                                <hr>
+                                <p class="mb-0">{{list.vacancy}} Vacancy</p>
+                                <hr>
+                                <p class="mb-0">Required Skills</p>
+                                <ul>
+                                    <li>{{list.skill.skill}}</li>
+                                </ul> 
+                                <hr>
+                                <p class="mb-0"> Required Qualification</p>
+                                <ul>
+                                    <li>{{list.education.education}}</li>
+                                </ul>
+                            </a>
+                            <div class="buttons">
+                                <button class="btn btn-success btn-2 first_button">Share</button>
+
+                            {% if not request.user.is_authenticated %}
+                                <a href="{% url 'Signup' %}"><button class="second_button">Apply</button></a>
+                                {% elif user.is_staff == 1 %}
+                                <button class="second_button">Apply</button>
+                                {% else %}
+                                <button class="second_button" onclick="openForm()">Apply</button>
+                            {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+
+                    {% else %}
+                    {% for list in joblisting %}
+                    <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="card-item card-button">
+                            <a class="cat-item rounded p-4" href="{% url 'job_detail' list.id %}">
+
+                                <h6 class="mb-3">{{list.title}}</h6>
+                                {% comment %} <i class="fa fa-3x fa-mail-bulk text-primary mb-4"></i> {% endcomment %}
+                                <hr>
+                                <p class="mb-0">{{list.company_name}} - {{list.job_location}}</p>
+                                <hr>
+                                <p class="mb-0">Posted On: {{list.published_on}}</p>
+                                <hr>
+                                <p class="mb-0">Required Experience
+                                <span class="card-detail">{{list.experience}} years </span></p>
+                                <hr>
+                                <p class="mb-0">{{list.vacancy}} Vacancy</p>
+                                <hr>
+                                <p class="mb-0">Required Skills</p>
+                                <ul>
+                                    <li>{{list.skill.skill}}</li>
+                                </ul> 
+                                <hr>
+                                <p class="mb-0"> Required Qualification</p>
+                                <ul>
+                                    <li>{{list.education.education}}</li>
+                                </ul>
+                            </a>
+                            <div class="buttons">
+                                <button class="btn btn-success btn-2 first_button">Share</button>
+
+                            {% if not request.user.is_authenticated %}
+                                <a href="{% url 'Signup' %}"><button class="second_button">Apply</button></a>
+                                {% elif user.is_staff == 1 %}
+                                <button class="second_button">Apply</button>
+                                {% else %}
+                                <button class="second_button" onclick="openForm()">Apply</button>
+                            {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    {% endif %}
+                   
+                </div>
+            </div>
+        </div>
+        <!-- Category End -->
+
+
+        <!-- Testimonial Start -->
+        {% comment %} <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="container">
+                <h1 class="text-center mb-5">Our Clients Say!!!</h1>
+                <div class="owl-carousel testimonial-carousel">
+                    <div class="testimonial-item bg-light rounded p-4">
+                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded" src="{% static 'img/testimonial-1.jpg' %}" style="width: 50px; height: 50px;">
+                            <div class="ps-3">
+                                <h5 class="mb-1">Client Name</h5>
+                                <small>Profession</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-light rounded p-4">
+                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded" src="{% static 'img/testimonial-2.jpg' %}" style="width: 50px; height: 50px;">
+                            <div class="ps-3">
+                                <h5 class="mb-1">Client Name</h5>
+                                <small>Profession</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-light rounded p-4">
+                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded" src="{% static 'img/testimonial-3.jpg' %}" style="width: 50px; height: 50px;">
+                            <div class="ps-3">
+                                <h5 class="mb-1">Client Name</h5>
+                                <small>Profession</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-light rounded p-4">
+                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded" src="{% static 'img/testimonial-4.jpg' %}" style="width: 50px; height: 50px;">
+                            <div class="ps-3">
+                                <h5 class="mb-1">Client Name</h5>
+                                <small>Profession</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> {% endcomment %}
+        <!-- Testimonial End --> 
+
+
+
+        <script>
+            function openForm() {
+              document.getElementById("popupForm").style.display = "block";
+            }
+            function closeForm() {
+              document.getElementById("popupForm").style.display = "none";
+            }
+        </script>
+
+
+    {% endblock main_content%}
+

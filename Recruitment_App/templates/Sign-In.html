@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>FreeWebsiteCode - Login/Registration Form Transition</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="{% static 'css/loginPage.css' %}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+
+<div class="cont">
+  <div class="form sign-in">
+    <h2>Welcome To Job Portal</h2>
+    {% if messages %}
+      <ul class="messages">
+      {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+    <form action= "/Login" method='post'>
+      {% csrf_token %}
+      {% comment %} <label>
+        <span>Email</span>
+        <input type="email" name="email" id="email" placeholder="name@example.com" required/>
+      </label> {% endcomment %}
+      <label>
+        <span>Username</span>
+        <input type="text" class="text" id="username" name="username" placeholder="Choose a unique username" required />
+      </label>
+      <label>
+        <span>Password</span>
+        <input type="password" name="pass1" id="pass1" placeholder="Choose Your Password" required/>
+      </label>
+      <p class="forgot-pass">Forgot password?</p>
+      <button type="submit" class="submit">Sign In</button></a>
+    </form>
+  </div>
+  <div class="sub-cont">
+    <div class="img">
+      <div class="img__text m--up">
+        <h2>New here?</h2>
+        <p>Sign up and discover great amount of new opportunities!</p>
+      </div>
+      <div class="img__text m--in">
+        <h2>One of us?</h2>
+        <p>If you already has an account, just sign in. We've missed you!</p>
+      </div>
+      <div class="img__btn">
+        <span class="m--up">Sign Up</span>
+        <span class="m--in">Sign In</span>
+      </div>
+    </div>
+    <div class="form sign-up">
+      <h2>Register here</h2>
+      {% if messages %}
+      <ul class="messages">
+      {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+      </ul>
+      {% endif %}
+      <form action= "/SignIn" method='post'>
+        {% csrf_token %}
+        {% comment %} <div class="emp_type">
+          <div class="emp">
+          <input type="radio" id="employee" name="fav_language" value="Employee" class="employee">
+          <label for="employee" class="employee_signup">Employee</label>
+          </div>
+          <div class="emr">
+          <input type="radio" id="employer" name="fav_language" class="employer" value="Employer">
+          <label for="employer" class="employee_signup">Employer</label>
+          </div>
+        </div> {% endcomment %}
+        <label>
+          <span>Username</span>
+          <input type="text" class="text" id="username" name="username" placeholder="Choose a unique username" required />
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" class="text" id="email" name="email" placeholder="name@example.com" required/>
+        </label>
+        <label>
+          <span>Password</span>
+          <input type="password" class="text" id="pass1" name="pass1" placeholder="Choose Your Password" required/>
+        </label>
+        <label>
+          <span>Confirm Password</span>
+          <input type="password" class="text" id="pass2" name="pass2" placeholder="Enter your password again" required/>
+        </label>
+        <button type="submit" class="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+  <script  src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

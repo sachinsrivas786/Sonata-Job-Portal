@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+{% block main_content %}
+
+{% load static %}
+
+        <!-- Header End -->
+        {% comment %} <div class="container-xxl py-5 bg-dark page-header mb-5">
+            <div class="container my-5 pt-5 pb-4">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">Job Detail</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb text-uppercase">
+                        <li class="breadcrumb-item"><a href="\">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Job Detail</li>
+                    </ol>
+                </nav>
+            </div>
+        </div> {% endcomment %}
+        <!-- Header End -->
+
+
+
+        <!-- Job Detail Start -->
+        <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="container">
+                <div class="row gy-5 gx-4">
+                
+                    <div class="col-lg-8">
+                        <div class="d-flex align-items-center mb-5">
+                            {% comment %} <img class="flex-shrink-0 img-fluid border rounded" src="{% static 'img/com-logo-2.jpg'%}" alt="" style="width: 80px; height: 80px;"> {% endcomment %}
+                            {% for list in joblisting %}
+                            <div class="text-start ps-8">
+                                <h3 class="mb-3">{{list.title}}</h3>
+                                <hr>
+                                <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{list.company_name}}- {{list.job_location}}</span>
+                                <hr>
+                                <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{list.employment_status}}</span>
+                                <hr>
+                                <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>{{list.Salary}}</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="apply-btn">
+                            <button class="first_button">Share</button>
+
+                        {% if not request.user.is_authenticated %}
+                            <a href="{% url 'Signup' %}"><button class="second_button">Apply</button></a>
+                            {% elif user.is_staff == 1 %}
+                            <button class="second_button">Apply</button>
+                            {% else %}
+                            <button class="second_button" onclick="openForm()">Apply</button>
+                        {% endif %}
+                        
+
+
+                        </div>
+                {% for list in joblisting %}  
+                    <div class="panel-full ng-star-inserted">
+                        <div class="panel panel-open">
+                            <div class="panel-heading clearfix">
+                                <h2 class="panel-title theme-color fl-left text-capitalize">Job Description</h2>
+                            </div>
+                            <div class="panel-body ng-star-inserted">
+                                <p><li style="font-size:12px;">{{list.description}}</li></p>
+                            </div>
+                        </div>
+                    
+                    </div>
+
+                    <div class="panel-full ng-star-inserted">
+                        <div class="panel panel-open">
+                            <div class="panel-heading clearfix">
+                                <h2 class="panel-title theme-color fl-left text-capitalize">Responsibility</h2>
+                            </div>
+                            <div class="panel-body ng-star-inserted">
+                                <p><li style="font-size:12px;">{{list.responsibilities}}</li></p>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    <div class="panel-full ng-star-inserted">
+                        <div class="panel panel-open">
+                            <div class="panel-heading clearfix">
+                                <h2 class="panel-title theme-color fl-left text-capitalize">Skills</h2>
+                            </div>
+                            <div class="panel-body padding-b10">
+                                <div class="skill-section ng-star-inserted">
+                                    <h4 class="title-12">Skill</h4>
+                                    <div class="skill-section-row-2 clearfix ng-star-inserted">
+                                        <span class="tag-job ng-star-inserted">{{list.skill.skill}}</span>
+                                    </div>
+                                </div>
+                        
+                                <div class="skill-section ng-star-inserted">
+                                    <h4 class="title-12">Minimum Qualification</h4>
+                                    <div class="skill-section-row-2 clearfix ng-star-inserted">
+                                        <span class="tag-job ng-star-inserted">{{list.education.education}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {% comment %} <ul class="list-unstyled">
+                            <li><i class="fa fa-angle-right text-primary me-2"></i>Dolor justo tempor duo ipsum accusam</li>
+                            <li><i class="fa fa-angle-right text-primary me-2"></i>Elitr stet dolor vero clita labore gubergren</li>
+                            <li><i class="fa fa-angle-right text-primary me-2"></i>Rebum vero dolores dolores elitr</li>
+                            <li><i class="fa fa-angle-right text-primary me-2"></i>Est voluptua et sanctus at sanctus erat</li>
+                            <li><i class="fa fa-angle-right text-primary me-2"></i>Diam diam stet erat no est est</li>
+                            </ul> {% endcomment %}
+                        </div>
+                    </div>
+                {% endfor %}                        
+                        {% if request.user.is_authenticated %}
+                        <div class="job_apply" id="popupForm">
+                            <h4 class="mb-4">Apply For The Job</h4>
+                            <hr>
+                            {% for list in joblisting %}
+                            <form class="container mt-3" method="POST" enctype="multipart/form-data" action="{% url 'apply_job' list.id %}">
+                                {% csrf_token %}                 
+                                <div class="row g-3">
+                                    <div class="col-12 col-sm-6">
+                                        <input type="text" class="form-control" name="name" value={{user.username}}>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <input type="email" class="form-control" name="email" value={{user.email}}>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <input type="number" class="form-control" name="mobile_no" placeholder="Enter Mobile No.">
+                                    </div>
+                                    {% comment %} <div class="col-12 col-sm-6">
+                                        <input type="file" class="form-control bg-white">
+                                    </div> {% endcomment %}
+                                    <div class="col-12">
+                                        <textarea class="form-control" rows="5" name="coverletter" placeholder="Coverletter"></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn sucess w-100" type="submit">Apply Now</button>
+                                        <button type="button" class="btn cancel w-100" onclick="closeForm()">Close</button>
+                                    </div>
+                                </div>
+                            </form>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                {% for list in joblisting %}
+                    <div class="col-lg-4">
+                        <div class="bg-light rounded p-5 mb-4 wow " data-wow-delay="0.1s">
+                            <h4 class="mb-4">Job Summery</h4>
+                         
+                            <p><i class="fa fa-angle-right text-primary me-2"></i>Published On: {{list.published_on}}</p>
+                            <p><i class="fa fa-angle-right text-primary me-2"></i>Vacancy: {{list.vacancy}} Position</p>
+                            <p><i class="fa fa-angle-right text-primary me-2"></i>Job Nature:{{list.employment_status}}</p>
+                            <p><i class="fa fa-angle-right text-primary me-2"></i>Salary: {{list.Salary}}</p>
+                            <p><i class="fa fa-angle-right text-primary me-2"></i>Location: {{list.job_location}}</p>
+                            <p class="m-0"><i class="fa fa-angle-right text-primary me-2"></i>Date Line:{{list.application_deadline}}</p>
+                        </div>
+                        <div class="bg-light rounded p-5 wow slideInUp" data-wow-delay="0.1s">
+                            <h4 class="mb-4">Company Detail</h4>
+                            <p class="m-0">{{list.company_name}}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- Job Detail End -->
+
+        <script>
+            function openForm() {
+              document.getElementById("popupForm").style.display = "block";
+            }
+            function closeForm() {
+              document.getElementById("popupForm").style.display = "none";
+            }
+        </script>
+    {% endblock main_content%}
+
