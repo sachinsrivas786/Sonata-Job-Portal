@@ -1329,6 +1329,8 @@ a {
     position: absolute;
     width: 100%;
     z-index: 1;
+    left: 10px;
+    top: 12px;
     height: 112px;
     border-radius: 50%;
     display: block;
