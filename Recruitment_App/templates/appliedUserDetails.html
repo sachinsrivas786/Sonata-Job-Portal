@@ -41,7 +41,7 @@
 </div>
 <!--end of Pagination-->
 <div class="data">
-  <div class ="table-data">
+ <div class ="table-data">
     <table class="table">
         <thead>
           <tr>
@@ -55,6 +55,7 @@
             <th scope="col">Email</th>
             <th scope="col">Mobile No.</th>
             <th scope="col">Cover Letter</th>
+            <th scope="col">Resume</th>
           </tr>
         </thead>
         <tbody>
@@ -70,11 +71,55 @@
             <td>{{x.email}}</td>
             <td>{{x.mobile_no}}</td>
             <td>{{x.coverletter}}</td>
+            <td>
+              {% if x.file %}
+              <button type="button"><a href="{{x.file.url}}">Resume</a></button>
+              {% endif %}
+            </td>
           </tr>
           {% endfor %}
         </tbody>
     </table>
-  </div>
-</div> 
+  </div> 
+
+ 
+      {% comment %} <div class="container-xxl py-3" >
+        <div class="container">
+          {% for x in ticket %}
+          <div class="row g-4">
+            <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s" id="received">
+              <div class="card-item card-button" >
+                  <a class="cat-item rounded p-4" href="">
+                  
+                      <h6 class="mb-3">{{x.joblisting.title}} </h6>
+                      <hr>
+                      <p class="mb-0">{{x.joblisting.company_name}}</p>
+                      <hr>
+                      <p class="mb-0">Posted On: {{x.joblisting.published_on}}</p>
+                      <hr>
+                      <p class="mb-0">Name :- {{x.name}}<br>
+                      <p class="card-detail">Email :- {{x.email}} </p>
+                      <hr>
+                      <p class="mb-0">Mobile No. :- {{x.mobile_no}}</p>
+                      <hr>
+                      <ul>
+                          <li> </li>
+                      </ul> 
+                      <hr>
+                      <p class="mb-0"> Cover Letter :- {{x.coverletter}}</p>
+                      <ul>
+                          <li> </li>
+                      </ul>
+                  </a>
+                
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>   {% endcomment %}
+
+</div>
+
 
 {% endblock main_content%}

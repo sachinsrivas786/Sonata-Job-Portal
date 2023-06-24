@@ -106,10 +106,10 @@ class ApplyJob(models.Model):
     name = models.CharField(max_length=50)
     email = models.EmailField()
     mobile_no = models.BigIntegerField(null=True)
-    # file = models.FileField(null=True)
+    file = models.FileField(upload_to='media',blank=True,null=True)
     coverletter = models.CharField(max_length=200, null=True)
     joblisting = models.ForeignKey(JobListing,null=True, on_delete=models.CASCADE)
-    status = models.BooleanField(null=True)
+    status = models.CharField(null=True,max_length=10,default=0)
     
     def __str__(self):
         return self.name

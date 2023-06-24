@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block main_content %}
+
+{% load static %}
+
+<div class="container-xxl py-3" >
+    <div class="container">
+        {% comment %} {% if request.user.is_staff %} {% endcomment %}
+
+        <div class="box">
+            <h1 class="box_heading">View Posted Jobs</h1>
+        </div>
+
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              {% if joblisting.has_previous %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ joblisting.previous_page_number }}">Previous</a>
+                </li>
+              {% else %}
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1" aria-disabled="True">Previous</a>
+                </li>
+              {% endif %}
+              {% for i in joblisting.paginator.page_range %}
+                {% if joblisting.number == i %}
+                  <li class="page-item active" aria-current="page">
+                    <span class="page-link">
+                      {{ i }}
+                      <span class="sr-only">(current)</span>
+                    </span>
+                  </li>
+                {% else %}
+                  <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
+              {% endfor %}
+              {% if joblisting.has_next %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ joblisting.next_page_number }}">Next</a>
+                </li>
+              {% else %}
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1" aria-disabled="True">Next</a>
+                </li>
+              {% endif %}
+            </ul>
+        </nav>
+
+
+            <div class="row g-4">
+                 {% for list in joblisting %}
+
+                       
+                    <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s" id="received">
+                        <div class="card-item card-button" >
+                            <a class="cat-item rounded p-4" href="{% url 'job_detail' list.id %}">
+
+                                <h6 class="mb-3">{{list.title}}</h6>
+                                <hr>
+                                <p class="mb-0">{{list.company_name}} - {{list.job_location}}</p>
+                                <hr>
+                                <p class="mb-0">Posted On: {{list.published_on}}</p>
+                                <hr>
+                                <p class="mb-0">Required Experience
+                                <span class="card-detail">{{list.experience}} years </span></p>
+                                <hr>
+                                <p class="mb-0">{{list.vacancy}} Vacancy</p>
+                                <hr>
+                                <p class="mb-0">Required Skills</p>
+                                <ul>
+                                    <li>{{list.skill.skill}}</li>
+                                </ul> 
+                                <hr>
+                                <p class="mb-0"> Required Qualification</p>
+                                <ul>
+                                    <li>{{list.education.education}}</li>
+                                </ul>
+                            </a>
+
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+        {% comment %} {% endif %} {% endcomment %}
+{% endblock main_content%}

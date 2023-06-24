@@ -17,7 +17,7 @@ def home(request):
         joblisting = JobListing.objects.all()
         category = Category.objects.all()
         skill = Skills.objects.all()
-        paginator = Paginator(joblisting,6)
+        paginator = Paginator(joblisting,8)
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
         return render(request, 'index.html',{'joblisting':page_obj,'skill':skill,'category':category,'education':education})
@@ -198,15 +198,16 @@ def apply_job(request,joblisting_id):
     
     if not request.user.is_authenticated:
         return redirect("/Login")
-    if request.method == "POST":
+    if request.method == "POST" and request.FILES['file']:
         name = request.POST['name']
         email = request.POST['email']
         mobile_no = request.POST['mobile_no']
         coverletter = request.POST['coverletter']
+        file = request.FILES['file']
             
         joblisting = JobListing.objects.get(id = joblisting_id)
 
-        ticket = ApplyJob.objects.create(joblisting_id=joblisting.id,user_id=user.id,name=name, email=email,mobile_no=mobile_no,coverletter=coverletter)
+        ticket = ApplyJob.objects.create(joblisting_id=joblisting.id,user_id=user.id,name=name, email=email,mobile_no=mobile_no,coverletter=coverletter,file=file)
         ticket.save()
         alert = True
     return redirect('/job_detail/'+str(joblisting_id))
@@ -254,3 +255,18 @@ def job_list(request):
     return render(request,'job-list.html')
 
 
+def hr_view_post(request):
+    education = Education.objects.all()
+    joblisting = JobListing.objects.all()
+    category = Category.objects.all()
+    skill = Skills.objects.all()
+    paginator = Paginator(joblisting,8)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request,'hr_view_jobs.html',{'joblisting':page_obj,'skill':skill,'category':category,'education':education})
+
+
+
+def update_job(request):
+    return render(request,'update_post_job.html')

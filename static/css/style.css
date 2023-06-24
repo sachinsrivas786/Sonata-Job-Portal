@@ -6,6 +6,11 @@
     --dark: #2B3940;
 } */
 
+.bg-primary {
+    background-color: #7cbfa694 !important;
+}
+
+
 :root {
     --primary: #4c4f4f;
     --secondary: #2B9BFF;
@@ -473,10 +478,9 @@ body{
     color: #fff;
 }
 
-.btn-danger{
-    width: 49%;
-    background-color:#a8407f;
+.btn-dark {
     color: #fff;
+    background-color: #69bde7;
 }
 
 .pt-5{
@@ -503,6 +507,7 @@ body{
 
 .mb-4 {
     margin-bottom: 1rem !important; 
+    width: 100%;
 }
 
 .py-5 {
@@ -532,13 +537,19 @@ body{
     margin-bottom: .5rem;
     margin-top: 1rem;
     display: block;
+    padding-top: .5rem;
 } 
+
+.form-d-flex{
+    margin-bottom: .5rem;
+    margin-top: 1rem;
+    display: flex !important;
+}
 
 .align-items-center {
     align-items: center !important;
-    /* box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.3);
-    margin-bottom: .5rem;
-    margin-top: 1rem; */
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 @media (min-width: 1400px){
@@ -599,7 +610,7 @@ hr{
     margin-bottom: 1rem !important
 }
 
-button.first_button{
+/* button.first_button{
     background-color:#939598;
     color: #fff;
     width: 49%;
@@ -609,19 +620,18 @@ button.first_button{
     border-radius: 10px;
     cursor: pointer;
     height: 30px;
-}
+} */
 
-button.second_button{
-    background-color:#a8407f;
+.second_button {
+    background-color: #a8407f;
     color: #fff;
-    width: 49%;
+    width: 100%;
     margin-left: 1.5px;
     box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.3);
     border: none;
     border-radius: 10px;
     cursor: pointer;
     height: 30px;
-   
 }
 
 p{
@@ -1526,35 +1536,49 @@ a.btn {
 }
 }
 
-@media (min-width: 300px){
+@media (max-width: 899px){
 .card{
-    width: 45% ;
+    max-width: 100px;
+    flex-shrink: 0;
     text-align: center;
-    display: inline-flex;
-    margin-left: 1.5%;
-    margin-right: 3%;
+    height: 80px;
+    background-color: #69bde7;
+    box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.3);
 }   
 }
 
 @media (min-width: 900px){
 .card{
-    width: 20% ;
+    width: 30% ;
     text-align: center;
-    display: inline-flex;
+    flex: 0 0 auto;
     margin-left: 1.5%;
     margin-right: 3%;
+    height: 40px;
+    background-color: #69bde7;
+    box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.3);
+
 }   
 }
-
+/* 
+@media (max-width:800px){
 .card{
+    width: 10%;
     text-align: center;
     display: inline-flex;
     margin-left: 1.5%;
     margin-right: 3%;
+}
+} */
+
+.card {
+    text-align: center;
+    display: inline-flex;
+    margin-left: 8%;
+    margin-right: 8%;
     border-radius: 15px;
-    margin-bottom: 2%;
-    margin-top: 1%;
-    
+    margin-bottom: 3%;
+    margin-top: 3%;
 }
 
 h3{
@@ -1593,4 +1617,114 @@ h3{
     border-radius: 6px;
     transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
    
+}
+
+
+
+/* HR View Jobs HTML */
+
+.box{
+    width:100%;
+    height:100px;
+
+}
+
+.box_heading{
+    text-align: center;
+    height: 20px;
+    margin-top: 50px;
+
+}
+
+.edit{
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+.edit-box{
+    width: 300px;
+    height: 100%;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.edit-btn{
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width: 150px;
+    background-color: #388dc1;
+    height: 30px;
+    font-size: 18px;
+    color: white;
+    
+}
+
+
+.candi-count{
+    box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.3);
+    height: 100px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    margin-left: .1px;
+    margin-right: .1px;
+}
+
+@media (max-width: 500px){
+    .candi-count{
+        height: 250px;
+    }
+}
+
+.hr{
+    padding-bottom: 10px;
+    margin-top: 4px;
+}
+.hr-panel{
+    display: inline-grid;
+    margin-top: 7px;
+
+}
+
+.col-md-9{
+    padding-bottom: 10px;
+}
+
+
+@media (min-width: 300px){
+.col-md-9{
+    width: 75%;
+
+}
+}
+
+.panel-btn{
+    height: 30px;
+    border-radius: 13px;
+    background-color: #43a5a5;
+    color: white;
+    font-size: 18px;
+}
+
+
+@media (min-width: 992px){
+.col-lg-10 {
+    flex: 0 0 auto;
+    width: 83.33333%;
+    margin: auto;
+}
+}
+
+
+
+/* POST JOB */
+
+.post-job{
+    width: 100%;
+    text-align: center;
+    margin: auto;
 }

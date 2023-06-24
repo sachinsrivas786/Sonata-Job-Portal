@@ -20,4 +20,9 @@ urlpatterns = [
     path('profile_update',views.profile_update,name="profile_update"),
     path('search',views.search,name="search"),
 
+    # HR URLs
+
+    path('hr_view_post/',views.hr_view_post, name="hr_view_post"),
+    path('update_job/',views.update_job, name="update_job"),
+
 ]

@@ -19,13 +19,24 @@
         <!-- Header End -->
 
 
-
         <!-- Job Detail Start -->
         <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
             <div class="container">
+
+              
+
                 <div class="row gy-5 gx-4">
-                
-                    <div class="col-lg-8">
+                    <div class="col-lg-10">
+
+                        
+                {% if user.is_staff == 1%}
+                <div class="edit">
+                    <div class="edit-box">
+                        <button class="edit-btn">Edit</button>
+                    </div>
+                </div>
+                {% endif %}
+
                         <div class="d-flex align-items-center mb-5">
                             {% comment %} <img class="flex-shrink-0 img-fluid border rounded" src="{% static 'img/com-logo-2.jpg'%}" alt="" style="width: 80px; height: 80px;"> {% endcomment %}
                             {% for list in joblisting %}
@@ -42,12 +53,10 @@
                         </div>
 
                         <div class="apply-btn">
-                            <button class="first_button">Share</button>
 
                         {% if not request.user.is_authenticated %}
                             <a href="{% url 'Signup' %}"><button class="second_button">Apply</button></a>
                             {% elif user.is_staff == 1 %}
-                            <button class="second_button">Apply</button>
                             {% else %}
                             <button class="second_button" onclick="openForm()">Apply</button>
                         {% endif %}
@@ -126,9 +135,9 @@
                                     <div class="col-12 col-sm-6">
                                         <input type="number" class="form-control" name="mobile_no" placeholder="Enter Mobile No.">
                                     </div>
-                                    {% comment %} <div class="col-12 col-sm-6">
-                                        <input type="file" class="form-control bg-white">
-                                    </div> {% endcomment %}
+                                    <div class="col-12 col-sm-6">
+                                        <input type="file" accept="image/*, .doc, .docx, .pdf, .txt, .xlxs" name="file" id="file" class="form-control bg-white">
+                                    </div> 
                                     <div class="col-12">
                                         <textarea class="form-control" rows="5" name="coverletter" placeholder="Coverletter"></textarea>
                                     </div>
@@ -141,8 +150,8 @@
                             {% endfor %}
                         </div>
                         {% endif %}
-                    </div>
-                {% for list in joblisting %}
+                    
+                {% comment %} {% for list in joblisting %}
                     <div class="col-lg-4">
                         <div class="bg-light rounded p-5 mb-4 wow " data-wow-delay="0.1s">
                             <h4 class="mb-4">Job Summery</h4>
@@ -159,10 +168,36 @@
                             <p class="m-0">{{list.company_name}}</p>
                         </div>
                     </div>
-                {% endfor %}
+                {% endfor %} {% endcomment %}
+               
+        
+        {% if request.user.is_staff == 1 %}
+
+            <div class="row mt-3 candi-count">
+                <div class="form-group col-md-10">
+                    <h5>Applied Candidate Count :- </h5>
+                    <hr>
+                    <div class="form-group col-md-3 hr-panel" >
+                        <button class="panel-btn" type="">Screen Candidates</button>
+                    </div>
+                    <div class="form-group col-md-3 hr-panel">
+                        <button  class="panel-btn" type="">Change Interview Panel</button>
+                    </div>
+                    <div class="form-group col-md-3 hr-panel">
+                        <button  class="panel-btn" type="">Shortlist Interviewed Candidates</button>
+                    </div>
+                </div>
+                <div class="form-group col-md-2 hr-panel hr">
+                    <h5>Time left :- 15D 3H</h5>
+                    <hr>
+                    <button class="panel-btn" type="" style="background-color:red;">Close Early</button>
                 </div>
             </div>
+        {% endif %}
         </div>
+    </div>
+</div>
+</div>
         <!-- Job Detail End -->
 
         <script>
