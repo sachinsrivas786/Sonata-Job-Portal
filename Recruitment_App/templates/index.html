@@ -96,26 +96,87 @@
         <div class="container-xxl py-3" >
             <div class="container">
 
-            {% if request.user.is_staff %} 
+        {% if request.user.is_staff %} 
 
-                <div class="card">
-                    <a href="{% url 'post_job'%}">
-                        <div class="card-body">
-                          <h5 class="card-title" style="color:white">Post A Job</h5>
-                          <p class="card-text"></p>
+            <!-- ======= Hero Section ======= -->
+            <section id="hero" class="hero">
+                <div class="icon-boxes position-relative">
+                  <div class="container position-relative">
+                    <div class="row gy-4 mt-5">
+                    
+                      <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="icon-box">
+                          <div class="icon"><i class="bi bi-easel"></i></div>
+                          <h4 class="title"><a href="{% url 'applied_user_details' %}" class="stretched-link">Candidate Screening</a></h4>
                         </div>
-                    </a>
-                </div>
+                      </div><!--End Icon Box -->
+                  
+                      <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="icon-box">
+                          <div class="icon"><i class="bi bi-gem"></i></div>
+                          <h4 class="title"><a href="" class="stretched-link">Schedule Interview</a></h4>
+                        </div>
+                      </div><!--End Icon Box -->
+                  
+                      <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="icon-box">
+                          <div class="icon"><i class="bi bi-geo-alt"></i></div>
+                          <h4 class="title"><a href="" class="stretched-link">Rejected Candidates</a></h4>
+                        </div>
+                      </div><!--End Icon Box -->
+                  
+                      <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="icon-box">
+                          <div class="icon"><i class="bi bi-command"></i></div>
+                          <h4 class="title"><a href="" class="stretched-link">Hold Candidates</a></h4>
+                        </div>
+                      </div><!--End Icon Box -->
 
-                <div class="card">
-                    <a href="{% url 'hr_view_post' %}" >
-                        <div class="card-body">
-                            <h5 class="card-title" style="color:white">View All Posted Jobs</h5>
-                            <p class="card-text"></p>
+                      <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="icon-box">
+                          <div class="icon"><i class="bi bi-command"></i></div>
+                          <h4 class="title"><a href="{% url 'post_job' %}" class="stretched-link">Post A Vacancy</a></h4>
                         </div>
-                    </a>
+                      </div><!--End Icon Box -->
+
+                      <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="icon-box">
+                          <div class="icon"><i class="bi bi-command"></i></div>
+                          <h4 class="title"><a href="{% url 'hr_view_post' %}" class="stretched-link">Vacancy Details</a></h4>
+                        </div>
+                      </div><!--End Icon Box -->
+                  
+                    </div>
+                  </div>
                 </div>
-            {% endif %}
+            </section>
+            <!-- End Hero Section -->
+
+
+                {% comment %} <div class="main-card">
+                    <div class ="child-card">
+                        <div class="card">
+                            <a href="{% url 'post_job'%}">
+                                <div class="card-body">
+                                  <h5 class="card-title" style="color:white">Post A Job</h5>
+                                  <p class="card-text"></p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="card">
+                            <a href="{% url 'hr_view_post' %}" >
+                                <div class="card-body">
+                                    <h5 class="card-title" style="color:white">View All Posted Jobs</h5>
+                                    <p class="card-text"></p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div> {% endcomment %}
+        {% endif %}
+
+
                 {% comment %} <div class="card">
                     <a href="#" >
                         <div class="card-body">
@@ -137,7 +198,7 @@
         
                     <!-- Search Start -->
 
-    <form class="form-d-flex" method = "POST" action="{% url 'search' %}">
+    {% comment %} <form class="form-d-flex" method = "POST" action="{% url 'search' %}">
         {% csrf_token %}
             <div class="container-fluid bg-primary mb-3 wow fadeIn" data-wow-delay="0.1s" style="padding: 15px;">
                 <div class="container">
@@ -155,7 +216,7 @@
                     </div>
                 </div>
             </div>
-        </form>
+        </form> {% endcomment %}
     
             <!-- Search End -->
     
@@ -202,7 +263,9 @@
       
 
 
+            {% if request.user.is_staff == 1%}
 
+            {% elif request.user.is_authenticated or not request.user.is_authenticated %}
 
                 <div class="row g-4">
                  
@@ -225,15 +288,15 @@
                                 <hr>
                                 <p class="mb-0">{{list.vacancy}} Vacancy</p>
                                 <hr>
-                                <p class="mb-0">Required Skills</p>
-                                <ul>
-                                    <li>{{list.skill.skill}}</li>
-                                </ul> 
-                                <hr>
                                 <p class="mb-0"> Required Qualification</p>
                                 <ul>
                                     <li>{{list.education.education}}</li>
                                 </ul>
+                                <hr>
+                                <p class="mb-0">Required Skills</p>
+                                <ul>
+                                    <li>{{list.skill.skill}}</li>
+                                </ul> 
                             </a>
                             <div class="buttons">
                                 {% comment %} <button class="btn btn-success btn-2 first_button">Share</button> {% endcomment %}
@@ -241,7 +304,7 @@
                             {% if not request.user.is_authenticated %}
                                 <a href="{% url 'Signup' %}"><button class="second_button">Apply</button></a>
                                 {% elif user.is_staff == 1 %}
-                                <button class="second_button">Apply</button>
+
                                 {% else %}
                                 <button class="second_button" onclick="openForm()">Apply</button>
                             {% endif %}
@@ -268,15 +331,15 @@
                                 <hr>
                                 <p class="mb-0">{{list.vacancy}} Vacancy</p>
                                 <hr>
-                                <p class="mb-0">Required Skills</p>
-                                <ul>
-                                    <li>{{list.skill.skill}}</li>
-                                </ul> 
-                                <hr>
                                 <p class="mb-0"> Required Qualification</p>
                                 <ul>
                                     <li>{{list.education.education}}</li>
                                 </ul>
+                                <hr>
+                                <p class="mb-0">Required Skills</p>
+                                <ul>
+                                    <li>{{list.skill.skill}}</li>
+                                </ul> 
                             </a>
                             <div class="buttons">
                                 {% comment %} <button class="btn btn-success btn-2 first_button">Share</button> {% endcomment %}
@@ -284,7 +347,7 @@
                             {% if not request.user.is_authenticated %}
                                 <a href="{% url 'Signup' %}"><button class="second_button">Apply</button></a>
                                 {% elif user.is_staff == 1 %}
-                                <button class="second_button">Apply</button>
+                             
                                 {% else %}
                                 <button class="second_button" onclick="openForm()">Apply</button>
                             {% endif %}
@@ -297,6 +360,12 @@
                    
                 </div> 
             </div>
+
+            {% endif%}
+
+
+
+
         </div>
         <!-- Category End -->
 

@@ -24,5 +24,7 @@ urlpatterns = [
 
     path('hr_view_post/',views.hr_view_post, name="hr_view_post"),
     path('update_job/',views.update_job, name="update_job"),
-
+    path('applied_job_view/<joblisting_id>/',views.applied_job_view,name="applied_job_view"),
+    
+    path('applied_user_full_details/',views.applied_user_full_details,name="applied_user_full_details"),
 ]

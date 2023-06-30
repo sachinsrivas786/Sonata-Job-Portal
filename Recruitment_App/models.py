@@ -5,20 +5,13 @@ from django.utils import timezone
 # Create your models here.
 
 
+
 JOB_TYPE = (
     ('Part Time', 'Part Time'),
     ('Full Time', 'Full Time'),
     ('Freelance', 'Freelancer'),
 )
 
-# CATEGORY = (
-#     ('Web Design', 'Web Design'),
-#     ('Graphic Design', 'Graphic Design'),
-#     ('Web Developing', 'Web Developing'),
-#     ('Software Engineering', 'Software Engineering'),
-#     ('HR', 'HR'),
-#     ('Marketing', 'Marketing'),
-# )
 
 GENDER = (
     ('Male', 'Male'),
@@ -26,22 +19,6 @@ GENDER = (
     ('Any', 'Any'),
 )
 
-# SKILLS=(
-#     ('Python', 'Python'),
-#     ('Django', 'Django'),
-#     ('HTML', 'HTML'),
-#     ('CSS', 'CSS'),
-#     ('JavaScript', 'JavaScript'),
-#     ('React', 'React'),
-#     ('Node.js', 'Node.js'),
-#     ('SQL', 'SQL'),
-#     ('NoSQL', 'NoSQL'),
-#     ('C', 'C'),
-#     ('C++', 'C++'),
-#     ('C#', 'C#'),
-#     ('Java', 'Java'),
-#     ('PHP', 'PHP'),
-# )
 
 
 class minimum_experience(models.Model):
@@ -94,6 +71,9 @@ class JobListing(models.Model):
     application_deadline = models.DateTimeField()
     published_on = models.DateTimeField(default=timezone.now)
     skill = models.ForeignKey(Skills,related_name='Skills', on_delete=models.CASCADE,null=True)
+    status = models.CharField(null=True,max_length=10,default=0)
+    
+    
     def __str__(self):
         return self.title
 
@@ -109,7 +89,7 @@ class ApplyJob(models.Model):
     file = models.FileField(upload_to='media',blank=True,null=True)
     coverletter = models.CharField(max_length=200, null=True)
     joblisting = models.ForeignKey(JobListing,null=True, on_delete=models.CASCADE)
-    status = models.CharField(null=True,max_length=10,default=0)
+
     
     def __str__(self):
         return self.name

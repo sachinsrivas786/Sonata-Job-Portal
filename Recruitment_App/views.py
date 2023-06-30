@@ -189,13 +189,13 @@ def job_detail(request,joblisting_id):
     skill = Skills.objects.all()
     joblisting = JobListing.objects.filter(id = joblisting_id)
     applyjob = ApplyJob.objects.filter(joblisting_id__in=joblisting)
-    return render(request,'job-detail.html',{'joblisting':joblisting,'category':category,'skill':skill,'education':education,'applyjob':applyjob})
+    applyjobcount = ApplyJob.objects.filter(joblisting_id__in=joblisting).count()
+    return render(request,'job-detail.html',{'joblisting':joblisting,'category':category,'skill':skill,'education':education,'applyjob':applyjob,'applyjobcount':applyjobcount})
 
 def apply_job(request,joblisting_id):
     user = User.objects.get(id = request.user.id)
     joblisting = JobListing.objects.filter(id = joblisting_id)
     applyjob = ApplyJob.objects.filter(joblisting_id=joblisting,user=user)
-    
     if not request.user.is_authenticated:
         return redirect("/Login")
     if request.method == "POST" and request.FILES['file']:
@@ -219,7 +219,7 @@ def appliedJob(request):
         return redirect("/Login")
     user = User.objects.get(id = request.user.id)
     joblisting = JobListing.objects.all()
-    apply = ApplyJob.objects.filter(joblisting_id__in = joblisting,user_id=user,status = 0)
+    apply = ApplyJob.objects.filter(joblisting_id__in = joblisting,user_id=user)
     paginator = Paginator(apply,7)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
@@ -231,7 +231,7 @@ def applied_user_details(request):
         return redirect("/Login")
     user = User.objects.get(id = request.user.id)
     joblisting = JobListing.objects.filter(user=user)
-    ticket = ApplyJob.objects.filter(joblisting_id__in = joblisting,status = 0)
+    ticket = ApplyJob.objects.filter(joblisting_id__in = joblisting)
     paginator = Paginator(ticket,5) 
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
@@ -246,7 +246,7 @@ def shortlisted(request):
     ticket = ApplyJob.objects.filter(joblisting_id__in = joblisting , status = 1)
     paginator = Paginator(ticket,5) 
     page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+    page_obj = paginator.get_page(page_number)  
     return render(request, 'appliedUserDetails.html',{'ticket':page_obj,'joblisting':joblisting})
 
 
@@ -268,5 +268,27 @@ def hr_view_post(request):
 
 
 
+def applied_job_view(request,joblisting_id):
+    category = Category.objects.all()
+    education = Education.objects.all() 
+    skill = Skills.objects.all()
+    user = User.objects.get(id = request.user.id)
+    joblisting = JobListing.objects.filter(user_id=user , id = joblisting_id)
+    applyjob = ApplyJob.objects.filter(joblisting_id__in=joblisting)
+    return render(request,'applied_job_view.html',{'joblisting':joblisting,'category':category,'skill':skill,'education':education,'applyjob':applyjob})
+
+
+
+
 def update_job(request):
     return render(request,'update_post_job.html')
+
+
+
+def applied_user_full_details(request):
+    if not request.user.is_authenticated:
+        return redirect("/Login")
+    user = User.objects.get(id = request.user.id)
+    joblisting = JobListing.objects.filter(user=user)
+    ticket = ApplyJob.objects.filter(joblisting_id__in = joblisting)
+    return render(request,'applied_user_full_detail.html',{'ticket':ticket,'joblisting':joblisting})

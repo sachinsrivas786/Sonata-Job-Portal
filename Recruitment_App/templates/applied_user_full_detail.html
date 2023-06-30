@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% block main_content %}
+
+{% load static %}
+
+        <!-- Header End -->
+        {% comment %} <div class="container-xxl py-5 bg-dark page-header mb-5">
+            <div class="container my-5 pt-5 pb-4">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">Job Detail</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb text-uppercase">
+                        <li class="breadcrumb-item"><a href="\">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Job Detail</li>
+                    </ol>
+                </nav>
+            </div>
+        </div> {% endcomment %}
+        <!-- Header End -->
+
+
+        <!-- Job Detail Start -->
+        <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="container">
+
+                <div class="row gy-5 gx-4">
+                    <div class="col-lg-6">
+       
+                        <div class="d-flex align-items-center mb-5">
+                            {% comment %} {% for x in ticket %} {% endcomment %}
+                            <div class="text-start ps-8">
+                                <h3 class="mb-3">Name :- {{x.name}}</h3>
+                                <hr>
+                                <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>Email :- {{x.email}}</span>
+                                <hr>
+                                <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Mobile No. :- {{x.mobile_no}}</span>
+                                <hr>
+                                <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>Age :- </span> 
+                                <hr>
+                                <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>City :-  </span>
+                                <hr>
+                                {% comment %} <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>Cover Letter :- {{x.coverletter}}</span> {% endcomment %}
+                            </div>
+                            {% comment %} {% endfor %} {% endcomment %}
+                        </div>
+
+                        {% comment %} {% for list in joblisting %}   {% endcomment %}
+                        <div class="panel-full ng-star-inserted">
+                            <div class="panel panel-open">
+                                <div class="panel-heading clearfix">
+                                    <h2 class="panel-title theme-color fl-left text-capitalize">Cover Letter</h2>
+                                </div>
+                                <div class="panel-body ng-star-inserted">
+                                    <p><li style="font-size:12px;">{{list.description}}</li></p>
+                                </div>
+                            </div>
+                        
+                        </div>
+
+                        {% comment %} <div class="panel-full ng-star-inserted">
+                            <div class="panel panel-open">
+                                <div class="panel-heading clearfix">
+                                    <h2 class="panel-title theme-color fl-left text-capitalize">Responsibility</h2>
+                                </div>
+                                <div class="panel-body ng-star-inserted">
+                                    <p><li style="font-size:12px;">{{list.responsibilities}}</li></p>
+                                </div>
+                            </div>
+                        </div> {% endcomment %}
+
+                        <div class="panel-full ng-star-inserted">
+                            <div class="panel panel-open">
+                                <div class="panel-heading clearfix">
+                                    <h2 class="panel-title theme-color fl-left text-capitalize">Skills</h2>
+                                </div>
+                                <div class="panel-body padding-b10">
+                                    <div class="skill-section ng-star-inserted">
+                                        <h4 class="title-12">Skill</h4>
+                                        <div class="skill-section-row-2 clearfix ng-star-inserted">
+                                            <span class="tag-job ng-star-inserted">{{list.skill.skill}}</span>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="skill-section ng-star-inserted">
+                                        <h4 class="title-12">Minimum Qualification</h4>
+                                        <div class="skill-section-row-2 clearfix ng-star-inserted">
+                                            <span class="tag-job ng-star-inserted">{{list.education.education}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                {% comment %} {% endfor %}                         {% endcomment %}
+                    
+                {% comment %} {% for list in joblisting %} {% endcomment %}
+
+                    {% comment %} <div class="col-lg-6 showresume">
+                        <div class="bg-light rounded p-5 mb-4 wow " data-wow-delay="0.1s">
+                            <h4 class="mb-4" style="text-align:center;">Resume</h4>
+                            <h1 class="resume"></h1>
+                        </div>
+                        
+                    </div> {% endcomment %}
+
+                    <div class="col-lg-6 skill-section ng-star-inserted resume">
+                        <h1 class="Resume-font" style="color:skyblue;">Resume</h1>
+                        <div class="resume-file">
+                            {% comment %} <input type="file"  accept="image/*, .doc, .docx, .pdf, .txt, .xlxs" name="doc"  multiple style="width:500px; height=300px;"> {% endcomment %}
+
+                            <object data="{% static 'PDF/sample-pdf.pdf' %}" type="application/pdf" width="100%" height="500px">
+                        </div>
+                    </div>
+                
+                {% comment %} {% endfor %} {% endcomment %}
+               
+        
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+        <!-- Job Detail End -->
+
+    {% endblock main_content%}
+

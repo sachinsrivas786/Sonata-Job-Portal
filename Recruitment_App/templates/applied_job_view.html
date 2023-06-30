@@ -3,7 +3,7 @@
 
 {% load static %}
 <!--Pagination-->
-{% comment %} <div style="margin-top:20px;">
+<div style="margin-top:20px;">
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
     {% if ticket.has_previous %}
@@ -38,70 +38,32 @@
     {% endif %}
   </ul>
 </nav>
-</div> {% endcomment %}
+</div>
 <!--end of Pagination-->
 <div class="data">
- {% comment %} <div class ="table-data">
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Job Title</th>
-            <th scope="col">Company Name</th>
-            <th scope="col">Published On</th>
-            <th scope="col">Total Vacancies</th>
-            <th scrope="col">Required Experience</th>
-            <th scope="col">Candidate Name</th>
-            <th scope="col">Candidate Email</th>
-            <th scope="col">Candidate Mobile No.</th>
-            <th scope="col">Cover Letter</th>
-            <th scope="col">Candidate Resume</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for x in ticket %}
-          <tr>
-            <td>{{x.id}}</td>
-            <td>{{x.joblisting.title}}</td>
-            <td>{{x.joblisting.company_name}}</td>
-            <td>{{x.joblisting.published_on}}</td>
-            <td>{{x.joblisting.vacancy}}</td>
-            <td>{{x.joblisting.minimum_exp.minimum}} - {{x.joblisting.maximum_exp.maximum}}</td>
-            <td>{{x.name}}</td>
-            <td>{{x.email}}</td>
-            <td>{{x.mobile_no}}</td>
-            <td>{{x.coverletter}}</td>
-            <td>
-              {% if x.file %}
-              <button type="button"><a href="{{x.file.url}}">Resume</a></button>
-              {% endif %}
-            </td>
-          </tr>
-          {% endfor %}
-        </tbody>
-    </table>
-  </div>  {% endcomment %}
-
- 
       <div class="container-xxl py-3" >
         <div class="container">
           <div class="row g-4">
-            <h1>Today's Interviews</h1>
-            <hr>
-            {% for x in ticket %}
+            {% if applyjob.joblisting_id == joblisting.id %}
+            {% for x in applyjob %}
             <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s" id="received">
               <div class="card-item card-button" >
-                  <a class="cat-item rounded p-4" href=" "> 
-
-                      <h6 class="mb-3">Name :- {{x.name}} </h6>
+                  <a class="cat-item rounded p-4" href="">
+                  
+                      <h6 class="mb-3">{{x.joblisting.title}} </h6>
                       <hr>
-                      <p class="mb-0">Email :- {{x.email}}</p>
+                      <p class="mb-0">{{x.joblisting.company_name}}</p>
+                      <hr>
+                      <p class="mb-0">Posted On: {{x.joblisting.published_on}}</p>
+                      <hr>
+                      <p class="mb-0">Name :- {{x.name}}<br>
+                      <p class="card-detail">Email :- {{x.email}} </p>
                       <hr>
                       <p class="mb-0">Mobile No. :- {{x.mobile_no}}</p>
                       <hr>
-                      <p class="mb-0">Age :- <br>
-                      <hr>
-                      <p class="mb-0">City :-  </p>
+                      <ul>
+                          <li> </li>
+                      </ul> 
                       <hr>
                       <p class="mb-0"> Cover Letter :- {{x.coverletter}}</p>
                       <ul>
@@ -112,6 +74,7 @@
               </div>
             </div>
             {% endfor %}
+            {% endif %}
           </div>
         </div>
       </div>   
