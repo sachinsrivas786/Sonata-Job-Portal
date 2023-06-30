@@ -3,20 +3,44 @@
 
 {% load static %}
 
-        <!-- Header End -->
-        {% comment %} <div class="container-xxl py-5 bg-dark page-header mb-5">
-            <div class="container my-5 pt-5 pb-4">
-                <h1 class="display-3 text-white mb-3 animated slideInDown">Job Detail</h1>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb text-uppercase">
-                        <li class="breadcrumb-item"><a href="\">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                        <li class="breadcrumb-item text-white active" aria-current="page">Job Detail</li>
-                    </ol>
-                </nav>
+        <!------------PROGRESS BAR------------>
+
+        <div class="stepper-wrapper">
+            <div class="stepper-item completed">
+              <div class="step-counter"></div>
+              <div class="step-name">1.Profile Details</div>
             </div>
-        </div> {% endcomment %}
-        <!-- Header End -->
+            <div class="stepper-item completed">
+              <div class="step-counter"></div>
+              <div class="step-name">2.Screening</div>
+            </div>
+            <div class="stepper-item active">
+              <div class="step-counter"></div>
+              <div class="step-name">3.Online Test</div>
+            </div>
+            <div class="stepper-item">
+              <div class="step-counter"></div>
+              <div class="step-name">4.Forth</div>
+            </div>
+            <div class="stepper-item">
+                <div class="step-counter"></div>
+                <div class="step-name">5.Interview Scheduled</div>
+            </div>
+            <div class="stepper-item">
+                <div class="step-counter"></div>
+                <div class="step-name">6.Interview Status</div>
+            </div>
+            <div class="stepper-item">
+                <div class="step-counter">7</div>
+                <div class="step-name">7.Onboarding</div>
+            </div>
+        </div>
+
+
+
+
+        <!-----END PROGRESS BAR------>
+
 
 
         <!-- Job Detail Start -->
@@ -122,6 +146,60 @@
 </div>
 </div>
         <!-- Job Detail End -->
+
+
+
+    {% comment %} <script>
+
+    const progressBar = document.getElementById("progress-bar");
+    const progressNext = document.getElementById("progress-next");
+    const progressPrev = document.getElementById("progress-prev");
+    const steps = document.querySelectorAll(".step");
+    let active = 1;
+
+    progressNext.addEventListener("click", () => {
+        active++;
+        if (active > steps.length) {
+          active = steps.length;
+        }
+        updateProgress();
+      });
+      
+      progressPrev.addEventListener("click", () => {
+        active--;
+        if (active < 1) {
+          active = 1;
+        }
+        updateProgress();
+    });
+
+
+    const updateProgress = () => {
+        // toggle active class on list items
+        steps.forEach((step, i) => {
+          if (i < active) {
+            step.classList.add("active");
+          } else {
+            step.classList.remove("active");
+          }
+        });
+        // set progress bar width  
+        progressBar.style.width = 
+          ((active - 1) / (steps.length - 1)) * 100 + "%";
+        // enable disable prev and next buttons
+        if (active === 1) {
+          progressPrev.disabled = true;
+        } else if (active === steps.length) {
+          progressNext.disabled = true;
+        } else {
+          progressPrev.disabled = false;
+          progressNext.disabled = false;
+        }
+      };
+
+
+
+    </script> {% endcomment %}
 
     {% endblock main_content%}
 

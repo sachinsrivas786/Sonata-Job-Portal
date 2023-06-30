@@ -299,15 +299,13 @@
                                 </ul> 
                             </a>
                             <div class="buttons">
-                                {% comment %} <button class="btn btn-success btn-2 first_button">Share</button> {% endcomment %}
-
-                            {% if not request.user.is_authenticated %}
+                              {% if not request.user.is_authenticated %}
                                 <a href="{% url 'Signup' %}"><button class="second_button">Apply</button></a>
                                 {% elif user.is_staff == 1 %}
 
                                 {% else %}
                                 <button class="second_button" onclick="openForm()">Apply</button>
-                            {% endif %}
+                              {% endif %}
                             </div>
                         </div>
                     </div>
@@ -342,15 +340,13 @@
                                 </ul> 
                             </a>
                             <div class="buttons">
-                                {% comment %} <button class="btn btn-success btn-2 first_button">Share</button> {% endcomment %}
-
-                            {% if not request.user.is_authenticated %}
+                              {% if not request.user.is_authenticated %}
                                 <a href="{% url 'Signup' %}"><button class="second_button">Apply</button></a>
                                 {% elif user.is_staff == 1 %}
                              
                                 {% else %}
                                 <button class="second_button" onclick="openForm()">Apply</button>
-                            {% endif %}
+                              {% endif %}
                             </div>
                         </div>
                     </div>
