@@ -1,4 +1,3 @@
-
 {% extends 'base.html' %}
 {% block main_content %}
 
@@ -11,6 +10,7 @@
                 <div class="content">
                     <app-notification>
                         <div class="position-rel container935">
+                            
                             <!---->
                         </div>
                     </app-notification>
@@ -202,117 +202,112 @@
                                                      <span class="fl-right pan-icon material-icons" aria-describedby="cdk-describedby-message-0" cdk-describedby-host=""> assignment_ind </span>
                                                      <!---->
                                                 </div>
-                                              
+                                                    {% comment %} <div class="panel-body ng-star-inserted">
+                                                        <p><li style="font-size:12px;"></li></p>
+                                                    </div> {% endcomment %}
                                             {% if request.user.is_authenticated %}
                                                 <div class="panel-body ng-star-inserted">
                                                         <!----><!---->
                                                     <div class="panel-row clearfix">
-                                                        <span class="panel-col panel-col1">First Name</span>
-                                                        <span class="panel-col text-bold-cell">{{user.username}}</span>
+                                                        <span class="panel-col panel-col1">Name</span>
+                                                        <input class="panel-col text-bold-cell" value="{{user.username}}"> 
                                                     </div>
                                                     <!---->
-                                                    <div class="panel-row clearfix">
+                                                    {% comment %} <div class="panel-row clearfix">
                                                         <span class="panel-col panel-col1">Middle Name</span>
-                                                        <span class="panel-col text-bold-cell">--</span>
+                                                        <input type="text" class="panel-col text-bold-cell" > 
                                                     </div>
                                                     <!---->
                                                     <div class="panel-row clearfix">
                                                         <span class="panel-col panel-col1">Last name</span>
-                                                        <span class="panel-col text-bold-cell">--</span>
-                                                    </div>
+                                                        <input type="text" class="panel-col text-bold-cell" value="" required> 
+                                                    </div> {% endcomment %}
                                                     <!---->
-                                                    <div class="panel-row clearfix">
+                                                    {% comment %} <div class="panel-row clearfix">
                                                         <span class="panel-col panel-col1">Do you have any relatives working in CSB Bank Ltd? (Yes/No)</span>
-                                                        <span class="panel-col text-bold-cell">--</span>
+                                                        <input type="text" class="panel-col text-bold-cell" value="" required> 
                                                     </div>
                                                     <!---->
                                                     <div class="panel-row clearfix">
                                                         <span class="panel-col panel-col1">Have you been arrested/been convicted by any court of law/have any pending legal cases?(Yes/No)</span>
-                                                        <span class="panel-col text-bold-cell">--</span>
+                                                        <input type="text" class="panel-col text-bold-cell" value="" required> 
                                                     </div>
                                                     <!---->
                                                     <div class="panel-row clearfix">
                                                         <span class="panel-col panel-col1">I hereby authorize CSB Bank or its vendors to access my credit score (Yes/No)</span>
-                                                        <span class="panel-col text-bold-cell">--</span>
+                                                        <input type="text" class="panel-col text-bold-cell" value="" required> 
                                                     </div>
                                                     <!---->
                                                     <div class="panel-row clearfix">
                                                         <span class="panel-col panel-col1">I agree to receive communication about my candidature with CSB via WhatsApp/Email/SMS (Yes/No)</span>
-                                                        <span class="panel-col text-bold-cell">--</span>
+                                                        <input type="text" class="panel-col text-bold-cell" value="" required> 
                                                     </div>
                                                     <!---->
                                                     <div class="panel-row clearfix">
                                                         <span class="panel-col panel-col1">All information provided by me in this application is true to the best of my knowledge (Yes/No)</span>
-                                                        <span class="panel-col text-bold-cell">--</span>
-                                                    </div>
+                                                        <input type="text" class="panel-col text-bold-cell" value="" required> 
+                                                    </div> {% endcomment %}
                                                     <!----><!---->
                                                     <div class="panel-row clearfix">
+                                                        <span class="panel-col panel-col1">Primary Email</span>
+                                                        <input type="text" class="panel-col text-bold-cell" value="" required> 
+                                                    </div>
+                                                    <div class="panel-row clearfix">
                                                         <span class="panel-col panel-col1">Mobile</span>
-                                                        <span class="panel-col text-bold-cell">--</span>
+                                                        <input type="text" class="panel-col text-bold-cell" value="" required> 
                                                     </div>
                                                     <!---->
                                                     <div class="panel-row clearfix">
                                                         <span class="panel-col panel-col1">Date Of Birth</span>
-                                                        <span class="panel-col text-bold-cell">--</span>
+                                                        <input type="date" class="panel-col text-bold-cell" required> 
                                                     </div>
-                                                    <!---->
                                                     <div class="panel-row clearfix">
-                                                        <span class="panel-col panel-col1">Candidate Age</span>
-                                                        <span class="panel-col text-bold-cell">--</span>
+                                                        <span class="panel-col panel-col1">Address</span>
+                                                        <input type="text" class="panel-col text-bold-cell" value="" required> 
                                                     </div>
+
+                                                    <!---->
+                                                    {% comment %} <div class="panel-row clearfix">
+                                                        <span class="panel-col panel-col1">Candidate Age</span>
+                                                        <input type="text" class="panel-col text-bold-cell" value="" required> 
+                                                    </div> {% endcomment %}
                                                     <!---->
                                                     <div class="panel-row clearfix">
                                                         <span class="panel-col panel-col1">Gender</span>
-                                                        <span class="panel-col text-bold-cell">--</span>
+                                                        <input type="text" class="panel-col text-bold-cell" value="" required> 
                                                     </div>
                                                     <!---->
                                                     <div class="panel-row clearfix">
-                                                        <span class="panel-col panel-col1">Primary Email</span>
-                                                        <span class="panel-col text-bold-cell">{{user.email}}</span>
+                                                        <span class="panel-col panel-col1">Resume File</span>
+                                                        <input type="file" accept="image/*, .doc, .docx, .pdf, .txt, .xlxs" name="file" id="file" class="form-control bg-white">
                                                     </div>
+
                                                     <!----><!---->
                                                     <div class="panel-row clearfix">
-                                                        <span class="panel-col panel-col1">PAN Available</span>
+                                                        <span class="panel-col panel-col1">Identity Adadhar</span>
+                                                        <input type="text" class="panel-col text-bold-cell" value="" required> 
+
                                                         <!----><!---->
                                                     </div>
                                                         <!----><!---->
                                                     <div class="panel-row clearfix">
-                                                        <span class="panel-col panel-col1">PAN Number</span>
-                                                        <span class="panel-col text-bold-cell">--</span>
+                                                        <span class="panel-col panel-col1">Identity PAN</span>
+                                                        <input type="text" class="panel-col text-bold-cell" value="" required> 
                                                     </div>
-                                                            <!---->
-                                                            <!---->
-                                                            <!---->
-                                                            <!---->
-                                                            <!---->
-                                                            <!---->
-                                                            <!---->
-                                                            <!---->
-                                                            <!---->
+                                                    <div class="panel-row clearfix">
+                                                        <span class="panel-col panel-col1">Identity Driving Licence</span>
+                                                        <input type="text" class="panel-col text-bold-cell" value="" required> 
+                                                    </div>
+                                                         
                                                 </div>
                                             {% endif %}
                                             </li>
                                                     <!---->
-                                            <li class="item_list_block step_open">
+                                                    <!---->
+                                            {% comment %} <li class="item_list_block step_open">
                                                 <div class="info_title theme-color">
                                                     <span class="count_Icon theme-color">
                                                         2
-                                                    </span>
-                                                    Personal Section  
-                                                </div>
-                                                <!---->
-                                                <div class="panel-body ng-star-inserted">
-                                                    <div class="panel-row clearfix">
-                                                        <span class="panel-col panel-col1 text-description">No data available</span>
-                                                    </div>
-                                                </div>
-                                                <!---->
-                                            </li>
-                                                    <!---->
-                                            <li class="item_list_block step_open">
-                                                <div class="info_title theme-color">
-                                                    <span class="count_Icon theme-color">
-                                                        3
                                                     </span>
                                                     Work Section 
                                                  </div>
@@ -322,13 +317,15 @@
                                                         <!---->
                                                         <div class="panel-row clearfix">
                                                             <span class="panel-col panel-col1">Fresher</span>
-                                                            <span class="panel-col text-bold-cell">No</span>
+                                                            <input type="text" class="panel-col text-bold-cell" value="" required> 
                                                         </div>
                                                         <!---->
                                                         <!---->
                                                         <!---->
                                                         <div class="panel-row clearfix">
                                                             <span class="panel-col panel-col1">Total Experience</span>
+                                                            <input type="text" class="panel-col text-bold-cell" value="" required> 
+
                                                             <!---->
                                                             <!---->
                                                             <!---->
@@ -347,15 +344,14 @@
                                             <li class="item_list_block step_open">
                                                 <div class="info_title theme-color">
                                                     <span class="count_Icon theme-color">
-                                                        4
+                                                        3
                                                     </span>
                                                     Education Section 
                                                  </div>
                                                  <!---->
-                                                 <div class="panel-body ng-star-inserted">
-                                                    <div class="panel-row clearfix">
-                                                        <span class="panel-col panel-col1 text-description">No data available</span>
-                                                    </div>
+                                                 <div class="panel-row clearfix">
+                                                    <span class="panel-col panel-col1">Total Experience</span>
+                                                    <input type="text" class="panel-col text-bold-cell" value="" required> 
                                                 </div>
                                                 <!---->
                                             </li>
@@ -363,51 +359,43 @@
                                             <li class="item_list_block step_open">
                                                 <div class="info_title theme-color">
                                                     <span class="count_Icon theme-color">
-                                                        5
+                                                       4
                                                     </span>
                                                     Skills 
                                                  </div
                                                  ><!---->
-                                                 <div class="panel-body ng-star-inserted">
-                                                    <div class="panel-row clearfix">
-                                                        <span class="panel-col panel-col1 text-description">No data available</span>
-                                                    </div>
+                                                 <div class="panel-row clearfix">
+                                                    <span class="panel-col panel-col1">Skills</span>
+                                                    <input type="text" class="panel-col text-bold-cell" value="" required> 
                                                 </div>
                                                 <!---->
                                             </li>
                                                     <!---->
-                                            <li class="item_list_block step_open">
-                                                <div class="info_title theme-color">
-                                                    <span class="count_Icon theme-color">
-                                                        6
-                                                    </span>
-                                                        Languages  
-                                                </div>
-                                                    <!---->
-                                                <div class="panel-body ng-star-inserted">
-                                                    <div class="panel-row clearfix">
-                                                        <span class="panel-col panel-col1 text-description">No data available</span>
-                                                    </div>
-                                                </div>
-                                                    <!---->
-                                            </li>
                                                         <!---->
                                             <li class="item_list_block step_open">
                                                 <div class="info_title theme-color">
                                                     <span class="count_Icon theme-color">
-                                                        7
+                                                       6
                                                     </span>
                                                     Attach Documents 
                                                 </div>
                                                  <!---->
-                                                <div class="panel-body ng-star-inserted">
-                                                    <div class="panel-row clearfix">
-                                                        <span class="panel-col panel-col1 text-description">No data available</span>
-                                                    </div>
+                                                <div class="panel-row clearfix">
+                                                    <span class="panel-col panel-col1">Document</span>
+                                                    <input type="file" class="panel-col text-bold-cell" value="" required> 
                                                 </div>
                                                 <!---->
-                                            </li>
+                                            </li> {% endcomment %}
                                         </ul>
+                                        <div class="column-footer row2 text-right">
+                                            <alt-spinner-button gaevent="UpdateProfile#Update_Basic" _nghost-etr-c4="">
+                                                <button _ngcontent-etr-c4="" href="javascript:void(0)" id="id" class="btn btn-primary">
+                                                    <!---->
+                                                    <!---->
+                                                    Update
+                                                </button>
+                                            </alt-spinner-button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="clearfix">

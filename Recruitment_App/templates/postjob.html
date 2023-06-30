@@ -5,7 +5,7 @@
 
         
             <div class="container">    
-                <div class="row align-items-center mb-3">
+                {% comment %} <div class="row align-items-center mb-3">
                     <div class="col-lg-8 mb-4 mb-lg-0">
                         <div class="d-flex align-items-center">
                             <div class="post-job">
@@ -13,11 +13,107 @@
                             </div>
                         </div>
                     </div>  
-                </div>
+                </div> {% endcomment %}
 
-                <div class="container-xxl py-3">
-                    <div class="container">
-                        <form class="container mt-3" method="POST" enctype="multipart/form-data">
+                <div class="container-xxl py-w">
+                  
+                        <div class="section_half">
+                            <ul class="item_list">
+                                <!---->
+                                <li class="item_list_block step_open">
+                                    <div class="info_title theme-color">
+                                        {% comment %} <span class="count_Icon theme-color">
+                                            
+                                        </span> {% endcomment %}
+                                        Post A Vacancy
+                                         <!----><!---->
+                                         {% comment %} <span class="fl-right pan-icon material-icons" aria-describedby="cdk-describedby-message-0" cdk-describedby-host=""> </span> {% endcomment %}
+                                         <!---->
+                                    </div>
+                                    
+                                    <form class="container mt-3" method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        
+                                        <div class="row">
+                                            <div class="form-group col-md-12">
+                                                <label>Branch Name</label>
+                                                <input type="text" class="form-control" name="title" id="title" placeholder="Branch Name" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="form-group col-md-12">
+                                                <label>No. of Vacancies</label>
+                                                <input type="text" class="form-control" name="vacancy" id="vacancy" placeholder="Job Vacancy" required>
+                                            </div>
+                                        </div>
+                
+                                        <div class="row">
+                                            <div class="form-group col-md-12">
+                                                <label>Role</label>
+                                                <input type="text" class="form-control" name=" category_id" id=" category_id" placeholder="Role" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row mt-3">
+                                            <div class="form-group col-md-6">
+                                                <label> Start Date</label>
+                                                <input type="date" class="form-control" name="published_on" id="published_on" placeholder="Start Date" required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>Salary (per month)</label>
+                                                <input type="tel" class="form-control" name="Salary" id="Salary" placeholder="Enter Salary (per month)" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-md-12">
+                                                <label>Qualifications</label>
+                                                <select class="form-control" name="education_id" id="education" required>
+                                                    <option value=""><--Select Qualification--></option>
+                                                    {% for qul in education %}
+                                                    <option value="{{qul.id}}">{{qul.education}}</option>
+                                                    {% endfor %}
+                                                </select>                
+                                            </div>
+                                        </div> 
+                
+                                        <div class="row mt-3">
+                                            <div class="form-group col-md-6">
+                                                <label>Interview Date</label>
+                                                <input type="date" class="form-control" name="interview_date" id=" interview_date" placeholder="Interview Date" required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>Interview Time</label>
+                                                <input type="time" class="form-control" name="interview_time" id="interview_time" placeholder="Interviewv Time" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row mt-3">
+                                            <div class="form-group col-md-12">
+                                                <label>Job Responsibility</label>
+                                               <textarea name="responsibilities" id="responsibilities" class="form-control" cols="30" rows="4" placeholder="Description of the exact job" required></textarea>
+                                            </div>
+                                        </div>
+                                    
+                                    
+                                        <div class="row mt-3">
+                                            <div class="form-group col-md-12">
+                                                <label>Job Description</label>
+                                               <textarea name="description" id="description" class="form-control" cols="30" rows="4" placeholder="Description of the exact job" required></textarea>
+                                            </div>
+                                        </div>
+                               
+                                        <input type="submit" value="CREATE" class="btn mt-3" style="background-color: #4f868c; color: white; font-size: larger; width: 8rem; padding-bottom: 25px;">
+
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        
+                
+                        {% comment %} <form class="container mt-3" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                         
                         <div class="row">
@@ -169,10 +265,10 @@
                             </div>
                    
                             <input type="submit" value="CREATE" class="btn mt-3" style="background-color: #4f868c; color: white; font-size: larger; width: 8rem;">
-                        </form>
+                        </form> {% endcomment %}
+                   
                     </div>
-                    </div>
-                </div> 
+                </div>  
             </div>
         {% endblock main_content%}
         

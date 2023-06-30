@@ -19,7 +19,7 @@ urlpatterns = [
     path('profile',views.profile,name="profile"),
     path('profile_update',views.profile_update,name="profile_update"),
     path('search',views.search,name="search"),
-
+    path('edit_profile',views.edit_profile,name="edit_profile"),
     # HR URLs
 
     path('hr_view_post/',views.hr_view_post, name="hr_view_post"),

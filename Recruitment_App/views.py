@@ -180,6 +180,9 @@ def post_job(request):
     return render(request, "postjob.html",{'category':category,'skill':skill,'education':education,'minimum':minimum,'maximum':maximum})
 
 
+def edit_profile(request):
+    return render(request, 'edit_profile.html')
+
 def about(request):
     return render(request,'about.html')
 
